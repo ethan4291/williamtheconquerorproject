@@ -1,0 +1,45 @@
+
+    <!doctype html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>William the Conqueror Project</title>
+            <style>
+                body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+                .container { min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding-top: 6vh; }
+                .content { max-width: 760px; padding: 24px; }
+                h1 { margin: 0 0 16px 0; font-size: 28px; text-align: center; }
+                .essay { white-space: pre-wrap; line-height: 1.6; color: #111; }
+                .essay .indent { text-indent: 2em; margin-top: 12px; }
+                /* Sensory figure layout */
+                .figure { display: grid; grid-template-columns: 1fr 260px 1fr; grid-template-rows: 100px 260px 100px; gap: 12px; align-items: center; justify-items: center; }
+                .box { border: 1px solid #d0d0d0; background: #fafafa; padding: 10px; box-sizing: border-box; width: 100%; max-width: 260px; text-align: center; border-radius: 6px; }
+                .box-top { grid-column: 2; grid-row: 1; }
+                .box-left { grid-column: 1; grid-row: 2; }
+                .box-center { grid-column: 2; grid-row: 2; display:flex; align-items:center; justify-content:center; padding: 6px; background: transparent; border: none; max-width: none; }
+                .box-center img { max-width: 220px; max-height: 220px; object-fit: cover; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+                .box-right { grid-column: 3; grid-row: 2; }
+                .box-bottom { grid-column: 2; grid-row: 3; }
+                .box-extra { grid-column: 1; grid-row: 1; max-width: 200px; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="content">
+                    <h1>William the Conqueror Project</h1>
+                    <div class="essay">
+        <div class="figure" role="group" aria-label="Sensory figure">
+            <div class="box box-extra">What actions I might take: Leading the armies to take over England.</div>
+            <div class="box box-top">What I see: French and English soldiers fighting in the Battle of Hastings.</div>
+            <div class="box box-left">What I sense: The armies smashing together as they charge into battle.</div>
+            <div class="box box-center"><img src="/static/williamtheconqueror.jpg" alt="center image"></div>
+            <div class="box box-right">What I hear: Swords clashing and cries of battle coming from across the field.</div>
+            <div class="box box-bottom">What I smell: The forests of England.</div>
+        </div>
+        </div>
+                </div>
+            </div>
+        </body>
+    </html>
+    

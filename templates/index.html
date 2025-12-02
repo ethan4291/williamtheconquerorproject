@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document Editor</title>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <style>
+      #editor { height: 70vh; }
+      .toolbar { margin-bottom: 8px; }
+      .controls { margin-top: 8px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Write like a word document</h1>
+      <div id="toolbar" class="toolbar">
+        <select class="ql-header">
+          <option value="1"></option>
+          <option value="2"></option>
+          <option selected></option>
+        </select>
+        <button class="ql-bold"></button>
+        <button class="ql-italic"></button>
+        <button class="ql-underline"></button>
+        <button class="ql-list" value="ordered"></button>
+        <button class="ql-list" value="bullet"></button>
+        <button class="ql-link"></button>
+      </div>
+
+      <div id="editor">{{ saved|safe }}</div>
+
+      <div class="controls">
+        <button id="saveBtn">Save</button>
+        <a id="viewSaved" href="/saved" target="_blank">Open saved HTML</a>
+      </div>
+    </div>
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+      const quill = new Quill('#editor', {
+        modules: { toolbar: '#toolbar' },
+        theme: 'snow'
+      });
+
+      const saveBtn = document.getElementById('saveBtn');
+      saveBtn.addEventListener('click', async () => {
+        const html = document.querySelector('#editor .ql-editor').innerHTML;
+        const res = await fetch('/save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ html })
+        });
+        const data = await res.json();
+        if (data.status === 'ok') {
+          saveBtn.textContent = 'Saved ✓';
+          setTimeout(() => saveBtn.textContent = 'Save', 1500);
+        } else {
+          saveBtn.textContent = 'Error';
+        }
+      });
+    </script>
+  </body>
+</html>
