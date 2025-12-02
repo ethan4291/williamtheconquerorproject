@@ -17,7 +17,7 @@ def index():
     BOX_LEFT = "What I sense: The armies smashing together as they charge into battle."
     BOX_EXTRA = "What actions I might take: Leading the armies to take over England."
 
-    IMAGE_SRC = "/static/williamtheconqueror.jpg"
+    IMAGE_SRC = "static/williamtheconqueror.jpg"
 
     ESSAY_BODY = (
         f"""
